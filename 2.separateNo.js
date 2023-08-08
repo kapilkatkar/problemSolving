@@ -5,12 +5,18 @@
  */
 
 function swapNo(arr) {
+  let newArr = [];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === 1) {
-      arr.splice(i, 1);
-      arr.push(1);
+    if (arr[i] === 0) {
+      newArr.push(0);
     }
   }
-  console.log(arr);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 1) {
+      newArr.push(1);
+    }
+  }
+  return newArr;
 }
 console.log(swapNo([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0]));
