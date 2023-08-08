@@ -8,7 +8,7 @@ function swapNo(arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === 1) {
       arr.splice(i, 1);
-      arr.push(arr[i]);
+      arr.push(1);
     }
   }
   console.log(arr);
