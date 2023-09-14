@@ -6,22 +6,34 @@ const MissigleLaunch = () => {
   const [startCountdown, setStartCountdown] = useState("OFF");
   const [lanuchMissile, setLanuchMissile] = useState("OFF");
 
-  const onOpenTunnle = (e) => {
-    console.log({ openTunnel });
-    console.log(e.target.value);
-    if (e.target.value === false) {
-      e.target.value = true;
+  const onOpenTunnle = () => {
+    if (openTunnel === "OFF") {
+      setOpenTunnle("ON");
     }
-    setOpenTunnle("ON");
+    if (openTunnel === "ON") {
+      setOpenTunnle("OFF");
+    }
   };
 
   //openTunnel === 'ON' ? OnEnablePower() :
 
   const OnEnablePower = () => {
-    setEnablePower("ON");
+    //setEnablePower("ON");
+    if (enablePower === "OFF") {
+      setEnablePower("ON");
+    }
+    if (enablePower === "ON") {
+      setEnablePower("OFF");
+    }
   };
   const onStartCountdown = () => {
-    setStartCountdown("ON");
+    //setStartCountdown("ON");
+    if (startCountdown === "OFF") {
+      setStartCountdown("ON");
+    }
+    if (startCountdown === "ON") {
+      setStartCountdown("OFF");
+    }
   };
 
   const onLanuchMissile = () => {
@@ -45,14 +57,24 @@ const MissigleLaunch = () => {
       </div>
       <div>
         <p>on-off : {startCountdown}</p>
-        <button onClick={onStartCountdown} disabled={enablePower !== "ON"}>
+        <button
+          onClick={onStartCountdown}
+          disabled={enablePower !== "ON" || openTunnel !== "ON"}
+        >
           {" "}
           Start Countdown
         </button>
       </div>
       <div>
         <p>on-off :{lanuchMissile}</p>
-        <button onClick={onLanuchMissile} disabled={startCountdown !== "ON"}>
+        <button
+          onClick={onLanuchMissile}
+          disabled={
+            startCountdown !== "ON" ||
+            openTunnel !== "ON" ||
+            enablePower !== "ON"
+          }
+        >
           Lanuch Missile
         </button>
       </div>
