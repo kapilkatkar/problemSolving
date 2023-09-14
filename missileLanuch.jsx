@@ -12,6 +12,10 @@ const MissigleLaunch = () => {
     }
     if (openTunnel === "ON") {
       setOpenTunnle("OFF");
+      setEnablePower("OFF");
+      setStartCountdown("OFF");
+      setLanuchMissile("OFF");
+      document.getElementById("success").innerText = "please try again";
     }
   };
 
@@ -24,6 +28,10 @@ const MissigleLaunch = () => {
     }
     if (enablePower === "ON") {
       setEnablePower("OFF");
+      setStartCountdown("OFF");
+      setLanuchMissile("OFF");
+      //added
+      document.getElementById("success").innerText = "please try again";
     }
   };
   const onStartCountdown = () => {
@@ -33,6 +41,8 @@ const MissigleLaunch = () => {
     }
     if (startCountdown === "ON") {
       setStartCountdown("OFF");
+      setLanuchMissile("OFF");
+      document.getElementById("success").innerText = "please try again";
     }
   };
 
