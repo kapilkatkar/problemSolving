@@ -29,7 +29,6 @@ console.log(
 );
 
 //reduce polyfill
-
 const reducePolyfill = (arr, callback, initiatlVal) => {
   let result = initiatlVal;
   for (let i = 0; i < arr.length; i++) {
@@ -46,3 +45,31 @@ console.log(
     0
   )
 );
+
+// toUpperCase polyfill
+const toUpperCasePolyfill = (strng) => {
+  let result = "";
+  for (let i = 0; i < strng.length; i++) {
+    if (strng[i] !== " ") {
+      result += String.fromCharCode(strng.charCodeAt(i) & 223);
+    } else {
+      result += " ";
+    }
+  }
+  return result;
+};
+console.log(toUpperCasePolyfill("to upper caSe"));
+
+//toLowercase polyfill
+const toLowercasePolyFill = (strng) => {
+  let result = "";
+  for (let i = 0; i < strng.length; i++) {
+    if (strng[i] !== " ") {
+      result += String.fromCharCode(strng.charCodeAt(i) | 32);
+    } else {
+      result += " ";
+    }
+  }
+  return result;
+};
+console.log(toLowercasePolyFill("to LowER CAse"));
