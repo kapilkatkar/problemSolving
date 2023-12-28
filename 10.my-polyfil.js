@@ -27,3 +27,22 @@ console.log(
     return val % 2 === 0;
   })
 );
+
+//reduce polyfill
+
+const reducePolyfill = (arr, callback, initiatlVal) => {
+  let result = initiatlVal;
+  for (let i = 0; i < arr.length; i++) {
+    result = callback(result, arr[i]);
+  }
+  return result;
+};
+console.log(
+  reducePolyfill(
+    [1, 2, 3, 4, 4, 5, 7],
+    (accumulator, currentVal) => {
+      return accumulator + currentVal;
+    },
+    0
+  )
+);
